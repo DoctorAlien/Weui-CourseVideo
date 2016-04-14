@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <title>教学视频</title>
+    <link rel="stylesheet" href="./css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="https://res.wx.qq.com/open/libs/weui/0.4.1/weui.min.css">
+    <script src="./js/jquery-2.1.4.min.js"></script>
+    <script src="./jsonDB/taffy-min.js"></script>
+    <script src="./js/getQueryString.js"></script>
+    <link href="//cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+<body ontouchstart>
+<div class="weui_tab">
+    <div class="weui_tab_bd">
+        <!--视频主体-->
+        <script>
+            var cid=getQueryString("cid");
+            $.getJSON("./jsonDB/data.json",function(data){
+                //console.log(data);
+                var courses=TAFFY(data["course"]);
+                var video=courses({cid:cid});
+                var row = video.supplant("<video id='video' controls preload='auto' width='100%' height='100%'><source src='{url}' type='video/mp4' /></video>");
+                $('#temp-container').html(row);
+            })
+        </script>
+        <div id="temp-container"></div>
+        <!--下载内容-->
+        <script>
+            var cid=getQueryString("cid");
+            var message="请确保在wifi环境下下载!\r\n如遇到无法下载，请点击右上角，在浏览器中打开即可完成下载!";
+            $.getJSON("./jsonDB/data.json",function(data){
+                //console.log(data);
+                var courses=TAFFY(data["course"]);
+                var video=courses({cid:cid});
+                var row = video.supplant("<a href='{url}' download='{url}' onclick='return confirm(message)'><div id='like-vote' class='like-vote'> <p class='like-title'>Do you like this course?</p> <div class='like-count'> <i class='fa fa-heart'></i></div> </div></a>");
+                $('#temp-like').html(row);
+            })
+        </script>
+        <div id="temp-like"></div>
+        <!--底部导航-->
+        <div class="weui_tabbar">
+            <a href="index.html" class="weui_tabbar_item weui_bar_item_on">
+                <div class="weui_tabbar_icon">
+                    <img src="./img/icon-index.png" alt="">
+                </div>
+                <p class="weui_tabbar_label">首页</p>
+            </a>
+            <a href="search.html" class="weui_tabbar_item">
+                <div class="weui_tabbar_icon">
+                    <img src="./img/icon-search.png" alt="">
+                </div>
+                <p class="weui_tabbar_label">搜索</p>
+            </a>
+        </div>
+    </div>
+</div>
+<!--temp-like的动态效果-->
+<script>
+    $("#temp-like").on("touchstart",function(){
+        $("#like-vote").addClass("like-vote-touch")
+    })
+    $("#temp-like").on("touchend",function(){
+        $("#like-vote").addClass("like-vote");
+        $("#like-vote").removeClass("like-vote-touch")
+    })
+</script>
+</body>
+</html>

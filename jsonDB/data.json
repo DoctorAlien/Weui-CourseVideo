@@ -1,0 +1,25 @@
+{
+"course":[
+  {"cid":"1","name":"word1","url":"./video/test1.mp4","head":"./img/icon-word.png","description":"无介绍","category":"word"},
+  {"cid":"2","name":"word1","url":"./video/test2.mp4","head":"./img/icon-word.png","description":"无介绍","category":"word"},
+  {"cid":"3","name":"word1","url":"./video/tes3.mp4","head":"./img/icon-word.png","description":"无介绍","category":"word"},
+  {"cid":"4","name":"word1","url":"./video/test.mp4","head":"./img/icon-word.png","description":"无介绍","category":"word"},
+  {"cid":"5","name":"word2","url":"./video/test.mp4","head":"./img/icon-word.png","description":"无介绍","category":"word"},
+  {"cid":"6","name":"word3","url":"./video/test.mp4","head":"./img/icon-word.png","description":"无介绍","category":"word"},
+  {"cid":"7","name":"word4","url":"./video/test.mp4","head":"./img/icon-word.png","description":"无介绍","category":"word"},
+  {"cid":"8","name":"word5","url":"./video/test.mp4","head":"./img/icon-word.png","description":"无介绍","category":"word"},
+  {"cid":"9","name":"word6","url":"./video/test.mp4","head":"./img/icon-word.png","description":"无介绍","category":"word"},
+  {"cid":"10","name":"ppt1","url":"./video/test.mp4","head":"./img/icon-ppt.png","description":"无介绍","category":"ppt"},
+  {"cid":"11","name":"ppt2","url":"./video/test.mp4","head":"./img/icon-ppt.png","description":"无介绍","category":"ppt"},
+  {"cid":"12","name":"ppt3","url":"./video/test.mp4","head":"./img/icon-ppt.png","description":"无介绍","category":"ppt"},
+  {"cid":"13","name":"excel1","url":"./video/test.mp4","head":"./img/icon-excel.png","description":"无介绍","category":"excel"},
+  {"cid":"14","name":"excel2","url":"./video/test.mp4","head":"./img/icon-excel.png","description":"无介绍","category":"excel"},
+  {"cid":"15","name":"excel3","url":"./video/test.mp4","head":"./img/icon-excel.png","description":"无介绍","category":"excel"},
+  {"cid":"16","name":"ps1","url":"./video/test.mp4","head":"./img/icon-ps.png","description":"无介绍","category":"ps"},
+  {"cid":"17","name":"ps2","url":"./video/test.mp4","head":"./img/icon-ps.png","description":"无介绍","category":"ps"},
+  {"cid":"18","name":"ps3","url":"./video/test.mp4","head":"./img/icon-ps.png","description":"无介绍","category":"ps"},
+  {"cid":"19","name":"flash1","url":"./video/test.mp4","head":"./img/icon-flash.png","description":"无介绍","category":"flash"},
+  {"cid":"20","name":"flash2","url":"./video/test.mp4","head":"./img/icon-flash.png","description":"无介绍","category":"flash"},
+  {"cid":"21","name":"flash3","url":"./video/test.mp4","head":"./img/icon-flash.png","description":"无介绍","category":"flash"}
+]
+}
