@@ -8,13 +8,13 @@
     <link rel="stylesheet" href="./css/common.css"/>
     <script src="./js/jquery-2.1.4.min.js"></script>
     <script src="./jsonDB/taffy-min.js"></script>
+    <script src="./js/getQueryString.js"></script>
 </head>
 <body ontouchstart>
-
-
 <div class="weui_tab">
     <div class="weui_tab_bd">
         <div class="bd">
+            <!--搜索框样式-->
             <div class="weui_search_bar" id="search_bar">
                 <form class="weui_search_outer" id="searchForm">
                     <div class="weui_search_inner">
@@ -32,21 +32,34 @@
             <script>
                 $("#search_input").bind('input propertychange',function(){
                     $.getJSON("./jsonDB/data.json",function(data){
-                        console.log(data);
                         var courses=TAFFY(data["course"]);
                         var category=courses({name:{like:$('#search_input').val()}});
                         var row = category.supplant("<a href='video.html?cid={cid}' class='weui_media_box weui_media_appmsg'> <div class='weui_media_hd'> <img class='weui_media_appmsg_thumb' src='{head}' alt=''> </div> <div class='weui_media_bd'> <h4 class='weui_media_title'>{name}</h4> <p class='weui_media_desc'>{description}</p> </div> </a>");
                         $('#temp-container').html(row);
                     })
                 })
-
-
+                var serach_content=getQueryString("search_input");
+                if(serach_content==null){}
+                else{
+                    $.getJSON("./jsonDB/data.json",function(data){
+                        var courses=TAFFY(data["course"]);
+                        var category=courses({name:{like:serach_content}});
+                        if(category.count()>0){
+                            var row = category.supplant("<a href='video.html?cid={cid}' class='weui_media_box weui_media_appmsg'> <div class='weui_media_hd'> <img class='weui_media_appmsg_thumb' src='{head}' alt=''> </div> <div class='weui_media_bd'> <h4 class='weui_media_title'>{name}</h4> <p class='weui_media_desc'>{description}</p> </div> </a>");
+                        }
+                        else{
+                            row="<div class='weui_media_box weui_media_appmsg' style='margion:0 auto;text-align: center'><div class='weui_media_bd'> <h4 class='weui_media_title'>找不到该视频</h4> <p class='weui_media_desc'>请尝试使用其他关键字试试</p> </div> </div>";
+                        }
+                        $('#temp-container').html(row);
+                    })
+                }
             </script>
+            <!--搜索结果-->
             <div class="weui_panel_bd">
                 <div id="temp-container"></div>
             </div>
-
         </div>
+        <!--底部菜单导航-->
         <div class="weui_tabbar">
             <a href="index.html" class="weui_tabbar_item weui_bar_item_on">
                 <div class="weui_tabbar_icon">
@@ -64,6 +77,6 @@
     </div>
 </div>
     <script src="./js/common.js"></script>
-	<script src="./js/isWechat.js"></script>
+    <script src="./js/isWechat.js"></script>
 </body>
 </html>
